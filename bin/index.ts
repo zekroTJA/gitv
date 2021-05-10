@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
-import { getGitVersionFromTag } from '../lib/gitp';
+import { getGitVersionFromTag, updateVersion } from '../lib/gitp';
 
-console.log(getGitVersionFromTag());
+getGitVersionFromTag().then((version) => {
+  updateVersion('package-test.json', version).then(() => console.log('ok'));
+});
