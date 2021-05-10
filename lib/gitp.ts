@@ -17,7 +17,7 @@ export async function updateVersion(
 
 function wrapExec(command: string): Promise<string> {
   return new Promise((resolve, rejects) => {
-    exec(command, (err, stdout, stderr) => {
+    exec(command, (err: Error | null, stdout: string, stderr: string) => {
       if (!!err) rejects(err);
       else if (!!stderr) rejects(new Error(stderr.trim()));
       else resolve(stdout.trim());
@@ -27,9 +27,9 @@ function wrapExec(command: string): Promise<string> {
 
 function readAndParseFile(file: string): Promise<any> {
   return new Promise((resolve, rejects) => {
-    readFile(file, (err, data) => {
+    readFile(file, (err: Error | null, data: Buffer) => {
       if (!!err) rejects(err);
-      else resolve(JSON.parse(data.toString('utf8')));
+      else resolve(JSON.parse(data.toString()));
     });
   });
 }
