@@ -1,5 +1,5 @@
 {
-  "name": "gitp",
+  "name": "gitv",
   "version": "1.0.0",
   "description": "Get current package version from git tags and set them to package.json.",
   "main": ":/dist/lib/gitp.js",

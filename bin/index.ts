@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { ArgumentParser } from 'argparse';
-import { getGitVersionFromTag, updateVersion } from '../lib/gitp';
+import { getGitVersionFromTag, updateVersion } from '../lib/gitv';
 
 (async () => {
   const args = getArgs();
